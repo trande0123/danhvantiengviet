@@ -1,5 +1,6 @@
 var app = angular.module('httpApp', []);
         app.controller('httpController', function ($scope, $http) {
+			$scope.idN = -1;
             $http.get("data/tiengviet.xml",
                     {
                         transformResponse: function (cnv) {
@@ -13,14 +14,23 @@ var app = angular.module('httpApp', []);
                 console.log(response);	
 				
 				$scope.currentPage = 0;
-				$scope.pageSize = 14;
+				$scope.pageSize = 15;
 				$scope.numberOfPages=function(){
 					return Math.ceil($scope.list.length/$scope.pageSize);                
     			}
 				
 				$scope.loadContent = function(id){
-						window.location.href="tachchu.html?id="+id;
-				}					
+						window.location.href="tapdoc.html?id="+id;
+						
+				}
+				var idN = window.location.href.split('=')[1];
+					angular.forEach($scope.list, function(value) {
+						if(value.id === idN){
+							$scope.data = value;
+						}
+					});
+				
+								
             });
         });
 		app.filter('startFrom', function() {
@@ -30,3 +40,9 @@ var app = angular.module('httpApp', []);
     }
 });
 		
+function setCookie(c_name, value) {
+    localStorage[c_name] = value;
+}
+function getCookie(c_name) {
+    return localStorage[c_name];
+}
