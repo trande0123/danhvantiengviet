@@ -1,0 +1,215 @@
+body {
+    background: url('http://www.kinyu-z.net/data/wallpapers/230/1510285.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.content {
+    align-content: space-evenly;
+}
+
+.level-box {
+    width: 70vw;
+    height: 60vh;
+    display: block;
+    margin: 10vh auto 0;
+    border: 4px solid #f7fffe;
+    border-radius: 30px;
+    padding: 50px 30px 30px;
+    background-color: #f6e3a9;
+    position: relative;
+}
+
+.level-box-header,
+.level-item {
+    font-family: 'Fredoka One', cursive;
+}
+
+.level-box-header,.level-item,.level-control-item,.page-control{
+    background: rgb(135,198,31);
+background: linear-gradient(336deg, rgba(135,198,31,1) 0%, rgba(164,225,72,1) 32%, rgba(164,224,74,1) 100%);
+}
+
+.level-box-header {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #fff;
+    padding: 10px;
+    width: 20vw;
+    height: 5vh;
+    border: 4px solid #f7fffe;
+    border-top: 1px; 
+    position: absolute;
+    left: 28vw;
+    top: -20px;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 5px;
+}
+
+.border-box {
+    clear: both;
+    position: relative;
+}
+
+.grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1px 1px;
+    grid-template-areas: "g1 g2 g3 g4 g5""g6 g7 g8 g9 g10""g11 g12 g13 g14 g15";
+}
+
+.g1 {
+    grid-area: g1;
+}
+
+.g2 {
+    grid-area: g2;
+}
+
+.g3 {
+    grid-area: g3;
+}
+
+.g4 {
+    grid-area: g4;
+}
+
+.g5 {
+    grid-area: g5;
+}
+
+.g6 {
+    grid-area: g6;
+}
+
+.g7 {
+    grid-area: g7;
+}
+
+.g8 {
+    grid-area: g8;
+}
+
+.g9 {
+    grid-area: g9;
+}
+
+.g10 {
+    grid-area: g10;
+}
+
+.g11 {
+    grid-area: g11;
+}
+
+.g12 {
+    grid-area: g12;
+}
+
+.g13 {
+    grid-area: g13;
+}
+
+.g14 {
+    grid-area: g14;
+}
+
+.g15 {
+    grid-area: g15;
+}
+
+.level-item {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #fff; 
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #aaa;
+}
+
+.page-control{
+    box-shadow: 5px 5px 5px #aaa;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff; 
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 20px;
+    position: absolute;
+    top: 40%;
+    line-height: 0;
+}
+.page-control.pre-page{
+    left: -30px;
+    transform: scale(-1, 1);
+}
+.page-control.next-page{
+    right: -30px;
+}
+
+.stars{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.star{
+    color: #aaa;
+    font-size: 1.5em;
+    display: inline-block;
+    text-shadow:
+       3px 3px 0 #fff,
+     -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+       1px 1px 0 #fff;
+}
+.star.big{font-size: 2em;}
+.star.complete{
+    color: #fcd442;
+}
+.level-control{
+    position: relative;
+    width: 100%; 
+    text-align: center;
+    margin-top: 10px;
+}
+.level-control-item{
+    width: 60px;
+    height: 60px;
+    border: 2px solid #fff; 
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #aaa;
+}
+
+.level-control-item:hover{
+    background: rgb(185,131,0);
+    background: linear-gradient(0deg, rgba(185,131,0,1) 0%, rgba(251,185,25,1) 46%, rgba(252,199,70,1) 100%);
+}
