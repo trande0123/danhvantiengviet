@@ -1,0 +1,20 @@
+
+.blockView{
+	width:12vw;
+	float:left;
+	margin-left:1vw;
+	border:red solid 1px;
+	text-align:center;
+	display:inline-block;
+    white-space: nowrap;
+}
+.grid{
+	width:100vw;
+	height:70vh;
+	float:left;
+}
+.paging{
+	position:absolute;
+	bottom:1vh;
+	left:1vw;
+}
