@@ -13,7 +13,7 @@ var app = angular.module('httpApp', []);
                 console.log(response);	
 				
 				$scope.currentPage = 0;
-				$scope.pageSize = 12;
+				$scope.pageSize = 14;
 				$scope.numberOfPages=function(){
 					return Math.ceil($scope.list.length/$scope.pageSize);                
     			}
