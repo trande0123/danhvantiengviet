@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Đánh vần tiếng việt cũ</title>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/xml2json.js"></script>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Patrick+Hand" rel="stylesheet">
+</head>
+<body ng-app="httpApp" ng-controller="httpController">
+	<div style="position:absolute;z-index:10">
+        <img class="a" src="images/giphy.gif" width="50" height="50"/>
+        <img class="b" src="images/giphy1.gif" width="50" height="50"/>
+        <img class="c" src="images/giphy2.gif" width="50" height="50"/>
+        <img class="d" src="images/giphy3.gif" width="50" height="50"/>
+    </div>
+    <div class="content-wrapper">
+        <div class="content pure-g">
+            <div class="level-box pure-u-1">
+                <div  class="level-box-header van">Vần</div>
+                <div class="grid-container" >
+                    <div ng-repeat="ct in list | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="loadContent(ct.id)" class="border-box"><div class="level-item worlds">{{ct.van}}</div>
+                </div>
+                <button class="page-control pre-page" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">➭</div>
+                <button class="page-control next-page" ng-disabled="currentPage >= list.length/pageSize - 1" ng-click=					"currentPage=currentPage+1">➮</div>
+            </div>
+            <div class="paging">
+            	Trang&nbsp;{{currentPage+1}}/{{numberOfPages()}}
+             </div>
+                <div class="level-control">
+                    <div class="level-control-item"><i class="fas fa-home"></i></div>
+                    <div class="level-control-item"><i class="fas fa-gamepad"></i></div>
+                    <div class="level-control-item"><i class="fas fa-save"></i></div>
+                    <div class="level-control-item"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="level-control-item play"><i class="fas fa-play"></i></div>
+                </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+		var app = angular.module('httpApp',[]);
+        app.controller('httpController', function ($scope, $http) {
+			$scope.idN = -1;
+			$scope.van = "";
+            $http.get("data/tiengviet.xml",
+                    {
+                        transformResponse: function (cnv) {
+                            var x2js = new X2JS();
+                            var aftCnv = x2js.xml_str2json(cnv);
+                            return aftCnv;
+                        }
+                    })
+            .success(function (response) {				
+                $scope.list = response.listdata.tv;		
+                console.log(response);	
+				
+				$scope.currentPage = 0;
+				$scope.pageSize = 15;
+				$scope.numberOfPages=function(){
+					return Math.ceil($scope.list.length/$scope.pageSize);                
+    			}
+				
+				$scope.loadContent = function(id){
+						window.location.href="tapdoc.html?id="+id;
+						
+				}
+				
+            });
+        });
+		app.filter('startFrom', function() {
+    	return function(input, start) {
+			start = +start; //parse to int
+			return input.slice(start);
+    	}
+		$(document).ready(function(e) {
+			animateDiv('.a');animateDiv('.b');animateDiv('.c');animateDiv('.d');
+		});
+});
+	
+	</script>
+</body>
+
+</html>

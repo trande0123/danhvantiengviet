@@ -1,52 +1,65 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
     <title>Load XML And Show As li In Angular JS - sibeecst_passion </title>
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-sanitize.js"></script>
     <script src="js/xml2json.js"></script>
     <script src="js/data.js"></script>
     <link href="css/style.css" rel="stylesheet"/>
-<script type="text/javascript">
-</script>
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Lobster|Pacifico|Roboto|Srisakdi|Charmonman" rel="stylesheet">
 </head>
-<body ng-app="httpApp" ng-controller="httpController">    
-   <div class="grid">	
-		<div class="blockView">
-                <h2 ng-bind="data.van"></h2>
-                 <p ng-bind="data.chu"></p></br>
-                <p ng-bind="data.title"></p>
-                <img src="{{data.picture}}" width="20%" height="20%"/>
-                <p ng-bind="data.doanvan"></p>
-        </div> 
+<body class="tapdoc" ng-app="httpApp" ng-controller="httpController">  
+<div id="logo">
+	<img src="images/logo.png" width="150" height="150"/>    
+</div>  
+<div id="back">
+	<img src="images/back.gif" ng-click="backstyle();"/>
 </div>
-
-</body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Load XML And Show As li In Angular JS - sibeecst_passion </title>
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/xml2json.js"></script>
-    <script src="js/data.js"></script>
-    <link href="css/style.css" rel="stylesheet"/>
-<script type="text/javascript">
-</script>
-</head>
-<body ng-app="httpApp" ng-controller="httpController">    
-   <div class="grid">	
+   <div class="grid">
+   		<div class="title">
+        	 <div ng-bind-html="loadVan(data.title,'point')"></div>
+              <div ng-bind-html="loadVan(data.chu,'point')"></div>
+               <div ng-bind-html="loadVan(data.van,'point')"></div>
+               <img class="a solid" ng-click="buterfly(loadBaitho(data.doanvan,0))" src="images/giphy.gif" width="20" height="20"/>
+               <img class="b solid" ng-click="buterfly(loadBaitho(data.doanvan,0))" src="images/giphy1.gif" width="20" height="20"/>
+               <img class="c solid" ng-click="buterfly(loadBaitho(data.doanvan,0))" src="images/giphy2.gif" width="20" height="20"/>
+               <img class="d solid" ng-click="buterfly(loadBaitho(data.doanvan,0))" src="images/giphy3.gif" width="20" height="20"/>
+               <a href="javascript:void(0)" ng-click="Read(data.phatam)">🔊</a>
+        </div>	
 		<div class="blockView">
-                <h2 ng-bind="data.van"></h2>
-                 <p ng-bind="data.chu"></p></br>
-                <p ng-bind="data.title"></p>
-                <img src="{{data.picture}}" width="20%" height="20%"/>
-                <p ng-bind="data.doanvan"></p>
+                <div ng-bind="alpha(data.van)" class="alpha"></div>
+                <img src="images/phone.gif" class="imgBig" ng-click="Read(data.title)"/>
+                <img ng-src="{{data.picture}}" class="imgSmall"  ng-click="Read(data.title)"/>
+                <audio src="" class="speech" hidden></audio>
         </div> 
+        <div class="bottom">
+        	 <div class="box" ng-click="Read(data.des1)">
+             	<a href="javascript:void(0)" ng-click="Read(data.des1)">🔊</a>            
+                <label ng-bind-html="loadVan(data.des1,'point')"></label>
+                <img ng-src="{{data.pic1}}" width="40" height="40"/>
+             </div>
+              <div class="box" ng-click="Read(data.des2)">
+              	<a href="javascript:void(0)" ng-click="Read(data.des2)">🔊</a>
+                <label ng-bind-html="loadVan(data.des2,'point')"></label>
+                <img ng-src="{{data.pic2}}" width="40" height="40"/>
+              </div>
+               <div class="box private oblink" ng-click="showup(loadBaitho(data.doanvan,0))">
+               	<a href="javascript:void(0)">🔊</a>
+                <p ng-bind-html="loadVan(loadBaitho(data.doanvan,2),'poempoint')"></p>
+                <img id="screen" src="images/focus.gif" width="40" height="40"/>
+               </div>
+        </div>
+        <div id="popup" class="solid">
+       	 <p class="solid" ng-bind-html="loadVan(loadBaitho(data.doanvan,1),'poempoint')"></p>
+         <p>Bắt bướm để nghe lại nào!!!</p>
+    	</div>
+        <script type="text/javascript">
+		$(document).ready(function(e) {
+			animateDiv('.a');animateDiv('.b');animateDiv('.c');animateDiv('.d');
+				$("#popup").hide();
+		});		
+		</script>
 </div>
-
 </body>
->>>>>>> 77c2e8147af785b608328f25e6782f8d8df72a11
 </html>
