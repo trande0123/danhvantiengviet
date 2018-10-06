@@ -25,7 +25,7 @@ body {
 
 .level-box-header,
 .level-item {
-   font-family: initial;
+    font-family: 'Fredoka One', cursive;
 }
 
 .level-box-header,.level-item,.level-control-item,.page-control{

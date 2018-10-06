@@ -1,8 +1,8 @@
 var LevelModule = (function () {
     var levelBox, controls;
-     // A private counter variable
     myPrivateVar = 0;
-     var generateCompleteStar = function(i){
+
+    var generateCompleteStar = function(i){
         var iconArray = [
             {
                 icon:"⬤",
@@ -39,7 +39,21 @@ var LevelModule = (function () {
      var showTooltip = function(elem){
         console.log(elem);
     };
-     // A private function which logs any arguments
+    
+        var template = `<div class="stars">
+            <div class="star ${iconArray[0].class}">${iconArray[0].icon}</div>
+            <div class="star ${iconArray[1].class}">${iconArray[1].icon}</div>
+            <div class="star ${iconArray[2].class}">${iconArray[2].icon}</div>
+        </div>`;
+        return template;
+    };
+
+    var showTooltip = function(elem){
+        console.log(elem);
+    };
+
+    // A private function which logs any arguments
+>>>>>>> f36a34a0af9b5aeab5b952cefe30bff7d07f0274
     var initLevelItems = function () {
         var gridItems = levelBox.querySelectorAll('.border-box');
         for (let index = 0; index < gridItems.length; index++) {
@@ -50,6 +64,7 @@ var LevelModule = (function () {
             element.innerHTML = template;
         }
     };
+<<<<<<< HEAD
      var setElements = function () {
         levelBox = document.getElementsByClassName('level-box')[0];
         controls = document.querySelectorAll(".level-control-item");
@@ -77,3 +92,39 @@ var LevelModule = (function () {
  document.addEventListener('DOMContentLoaded', function () {
     LevelModule.init();
 }, false); 
+
+    var setElements = function () {
+        levelBox = document.getElementsByClassName('level-box')[0];
+        controls = document.querySelectorAll(".level-control-item");
+    };
+
+    var initElements = function () {
+        initLevelItems();
+
+        for (let index in controls) {
+            controls[index].addEventListener("click", function(){showTooltip(this);}, false);;
+        }
+    };
+
+    return {
+        // A public variable
+        myPublicVar: "foo",
+
+        init: function () {
+            setElements();
+            initElements();
+        },
+
+        // A public function utilizing privates
+        myPublicFunction: function (bar) {
+
+            // Increment our private counter
+            myPrivateVar++;
+        }
+    };
+
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+    LevelModule.init();
+}, false);
